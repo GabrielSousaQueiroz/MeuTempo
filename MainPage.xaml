@@ -14,7 +14,7 @@
                    TextColor="White"
                    HorizontalOptions="Center" />
 
-            <!-- Entrada de cidade + botão -->
+            <!-- Entrada de cidade + botões -->
             <HorizontalStackLayout Spacing="10">
                 <Entry x:Name="CidadeEntry"
                        Placeholder="Digite sua cidade"
@@ -23,12 +23,23 @@
                        PlaceholderColor="#888"
                        HeightRequest="40"
                        HorizontalOptions="FillAndExpand"
-                       Keyboard="Text" />
-                <Button Text="Buscar"
+                       Keyboard="Text"
+                       Completed="OnBuscarClima" />
+
+                <Button Text="🔍"
                         Clicked="OnBuscarClima"
                         BackgroundColor="#03DAC6"
                         TextColor="Black"
                         CornerRadius="10"
+                        WidthRequest="40"
+                        HeightRequest="40" />
+
+                <Button Text="📍"
+                        Clicked="OnBuscarPorLocalizacao"
+                        BackgroundColor="#BB86FC"
+                        TextColor="Black"
+                        CornerRadius="10"
+                        WidthRequest="40"
                         HeightRequest="40" />
             </HorizontalStackLayout>
 
@@ -95,6 +106,12 @@
                 </VerticalStackLayout>
 
             </Frame>
+
+            <!-- Indicador de carregamento -->
+            <ActivityIndicator x:Name="LoadingIndicator"
+                               IsVisible="False"
+                               Color="#03DAC6"
+                               HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
